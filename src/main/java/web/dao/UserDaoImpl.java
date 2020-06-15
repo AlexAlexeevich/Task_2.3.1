@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -30,7 +31,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(Long id) {
-        this.sessionFactory.getCurrentSession().delete(getUserById(id));
+        Query query = this.sessionFactory.getCurrentSession().createQuery("DELETE FROM User WHERE id = :id");
+        query.setParameter("id", id).executeUpdate();
     }
 
     @Override

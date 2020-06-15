@@ -19,17 +19,31 @@
     <table cellspacing="0" border="1">
         <tr>
             <td>ID:</td>
-            <td>${user.id}
-                <form:hidden path="id"/>
+            <td>
+                <c:if test="${user != null}">
+                    <input type="text" name="id" value="<c:out value='${user.id}' />"/>
+                    <form:hidden path="id"/>
+                </c:if>
             </td>
         </tr>
         <tr>
-            <td><form:label path="name">Name</form:label></td>
-            <td><form:input path="name"/></td>
+            <td>User Name:</td>
+            <td><c:if test="${user != null}">
+                <input type="text" name="name" value="<c:out value='${user.name}' />"/>
+            </c:if>
+                <c:if test="${user == null}">
+                    <input type="text" name="name">
+                </c:if>
+            </td>
         </tr>
         <tr>
-            <td><form:label path="password">Password</form:label></td>
-            <td><form:input path="password"/></td>
+            <td>User Password:</td>
+            <td><c:if test="${user != null}">
+                <input type="text" name="password" value="<c:out value='${user.password}' />"/>
+            </c:if>
+                <c:if test="${user == null}">
+                    <input type="text" name="password">
+                </c:if></td>
         </tr>
     </table>
 

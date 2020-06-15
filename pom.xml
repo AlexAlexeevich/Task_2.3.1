@@ -53,6 +53,14 @@
             <version>${spring.version}</version>
         </dependency>
 
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.data</groupId>-->
+<!--            <artifactId>spring-data-commons</artifactId>-->
+<!--            <version>2.3.1.RELEASE</version>-->
+<!--        </dependency>-->
+
+
 
         <dependency>
             <groupId>javax.servlet</groupId>

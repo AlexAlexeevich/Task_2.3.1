@@ -25,9 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/admin/addUser")
-    public String formAddUser(ModelMap model) {
-        System.out.println("getmapping adduser");
-        model.addAttribute("user", new User());
+    public String formAddUser() {
         return "user_form";
     }
 

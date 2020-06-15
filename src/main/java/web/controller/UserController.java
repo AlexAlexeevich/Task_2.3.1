@@ -11,8 +11,12 @@ import web.service.UserService;
 @RequestMapping("/")
 public class UserController {
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/admin")
     public String showUsers(ModelMap model) {
@@ -22,6 +26,7 @@ public class UserController {
 
     @GetMapping("/admin/addUser")
     public String formAddUser(ModelMap model) {
+        System.out.println("getmapping adduser");
         model.addAttribute("user", new User());
         return "user_form";
     }
@@ -44,7 +49,7 @@ public class UserController {
 
     @GetMapping("/admin/deleteUser/{id}")
     public String deleteUser(@PathVariable("id") long id) {
-        userService.deleteUser(userService.getUserById(id));
+        userService.deleteUser(id);
         return "redirect:/admin";
     }
 }

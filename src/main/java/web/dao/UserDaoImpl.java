@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
     private final SessionFactory sessionFactory;
 
+    @Autowired
     public UserDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -29,8 +29,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void deleteUser(User user) {
-        this.sessionFactory.getCurrentSession().delete(user);
+    public void deleteUser(Long id) {
+        this.sessionFactory.getCurrentSession().delete(getUserById(id));
     }
 
     @Override
